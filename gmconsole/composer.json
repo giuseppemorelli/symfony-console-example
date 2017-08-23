@@ -1,0 +1,23 @@
+{
+  "name": "gmdotnet/gmconsole",
+  "description": "Sample Symfony console",
+  "authors": [
+    {
+      "name": "Giuseppe Morelli",
+      "email": "info@giuseppemorelli.net"
+    }
+  ],
+  "require": {
+    "symfony/console": "^2.7",
+    "symfony/yaml": "^2.7",
+    "symfony/filesystem": "^2.7",
+    "monolog/monolog": "^1.20",
+    "league/csv": "^8.2",
+    "pimple/pimple": "3.2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "GM\\Console\\": "src"
+    }
+  }
+}
