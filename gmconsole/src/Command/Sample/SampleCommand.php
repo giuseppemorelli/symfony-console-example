@@ -7,17 +7,10 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use GM\Console\Command\BaseCommand;
 
-class SampleCommand extends Command
+class SampleCommand extends BaseCommand
 {
-    protected $sample;
-
-    public function __construct($sample)
-    {
-        parent::__construct();
-        $this->sample = $sample;
-    }
-
     protected function configure()
     {
         $this
@@ -28,6 +21,6 @@ class SampleCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln($this->sample->sayHello());
+        $output->writeln($this->app['sample']->sayHello());
     }
 }
