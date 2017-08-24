@@ -24,7 +24,7 @@ class ApplicationContainer extends Container
         );
 
         $this['sample'] = function($app) {
-            return new Sample($app['parameters']['config.file']);
+            return new Sample($app);
         };
 
         $this['command.sample'] = function() {

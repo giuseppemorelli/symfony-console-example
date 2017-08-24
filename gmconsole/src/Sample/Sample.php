@@ -3,15 +3,15 @@ namespace GM\Console\Sample;
 
 class Sample
 {
-    private $config;
+    private $app;
 
-    public function __construct($config)
+    public function __construct($app)
     {
-        $this->config = $config;
+        $this->app = $app;
     }
 
     public function sayHello()
     {
-        return $this->config['app']['string'];
+        return $this->app['parameters']['config.file']['app']['string'];
     }
 }
