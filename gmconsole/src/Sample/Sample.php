@@ -12,6 +12,7 @@ class Sample
 
     public function sayHello()
     {
-        return $this->app['parameters']['config.file']['app']['string'];
+        $config = $this->app['config'];
+        return $config->getConfigData('settings/string');
     }
 }

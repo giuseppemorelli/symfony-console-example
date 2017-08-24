@@ -18,10 +18,20 @@ class ApplicationContainer extends Container
 
         $app = $this;
 
-        $this['parameters'] = array(
-            'config.file.path' => __DIR__.'/../config/config.yaml',
-            'config.file'      => Yaml::parse(file_get_contents(__DIR__.'/../config/config.yaml'))
-        );
+        $env = Yaml::parse(file_get_contents(__DIR__.'/../config/env.yaml'));
+        $this['env'] = strtolower($env['environment']);
+
+        $this['parameters'] = function($app) {
+
+            return array(
+                'config.file.path' => __DIR__.'/../config/config.yaml',
+                'config.file'      => Yaml::parse(file_get_contents(__DIR__.'/../config/config.yaml'))
+            );
+        };
+
+        $this['config'] = function($app) {
+            return new \GM\Console\System\Config($app);
+        };
 
         $this['sample'] = function($app) {
             return new Sample($app);
