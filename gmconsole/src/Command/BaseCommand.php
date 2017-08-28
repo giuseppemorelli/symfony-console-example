@@ -12,11 +12,6 @@ class BaseCommand extends Command
 {
     protected $app;
 
-    public function getApp()
-    {
-        return $this->app;
-    }
-
     protected function initialize(InputInterface $input = null, OutputInterface $output = null)
     {
         $this->app = $this->getApplication()->getApp();

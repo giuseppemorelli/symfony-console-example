@@ -10,6 +10,15 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ini_set('default_socket_timeout', '-1');
 
+if (!file_exists(__DIR__.'/../vendor/autoload.php')) {
+    throw new \RuntimeException(
+        "\n"
+        ."[ERROR] It seems that those dependencies aren't properly installed.\n"
+        ."Please run composer install on project root.\n"
+        ."\n\n"
+    );
+}
+
 require __DIR__ . '/../vendor/autoload.php';
 
 $container = new \GM\Console\ApplicationContainer();

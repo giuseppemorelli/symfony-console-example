@@ -1,2 +1,6 @@
-app:
-  string: 'Hello Giuseppe!'
+- environment: local
+  settings:
+    string: 'Hello Giuseppe in Local!'
+- environment: stage
+  settings:
+    string: 'Hello Giuseppe in Stage!'
