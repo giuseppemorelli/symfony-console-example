@@ -14,18 +14,37 @@ class Config
         $this->conf = $app['parameters']['config.file'];
     }
 
-    public function getConfigData($path)
+    public function getConfigData($origin_path)
     {
-        $path = explode('/', $path);
+        $tree = null;
+        $count = null;
+        $env = $this->env;
+        $path = explode('/', $origin_path);
+        $path_count = count($path);
 
         foreach($this->conf as $config)
         {
-            if($config['app']['environment'] == $this->env)
+            if($config['environment'] == $env)
             {
+                $count = 0;
+                $tree = $config;
 
-                die;
+                foreach($path as $node)
+                {
+                    if(isset($tree[$node]))
+                    {
+                        $tree = $tree[$node];
+                        $count++;
+                    }
+                }
             }
-            continue;
+        }
+
+        if($count == $path_count){
+            return $tree;
+        }
+        else {
+            throw new \Exception('Config "'.print_r($origin_path, true). '" not found for environment "'.$env.'"');
         }
     }
 }
