@@ -21,5 +21,5 @@ Any contribution is highly appreciated. The best way to contribute code is to op
 OSL-3.0
 
 ### Credits
-Giuseppe Morelli - [giuseppemorelli.net](http://www.giuseppemorelli.net)
+Giuseppe Morelli - [giuseppemorelli.net](http://www.giuseppemorelli.net)  
 Thanks to [Luciano Mammino](https://github.com/lmammino/SymfonyConsolePimple) for inspiration.
